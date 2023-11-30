@@ -1,0 +1,105 @@
+-----START-----
+I. Tập luật suy diễn:
+R01: IF S01 THEN D01
+R01: IF S01 THEN D02
+R01: IF S01 THEN D03
+R010: IF S10 THEN D02
+R010: IF S10 THEN D04
+R011: IF S11 THEN D01
+R012: IF S12 THEN D05
+R02: IF S02 THEN D01
+R02: IF S02 THEN D04
+R02: IF S02 THEN D05
+R03: IF S03 THEN D02
+R05: IF S05 THEN D03
+R05: IF S05 THEN D04
+R06: IF S06 THEN D01
+R07: IF S07 THEN D02
+R08: IF S08 THEN D03
+R09: IF S09 THEN D03
+----------
+
+II. Tập thể trạng người dùng:
+S02
+S03
+S10
+S07
+----------
+
+III. Quá trình suy diễn tiến:
+R01 : S01 -> D01  Không được áp dụng, vì thiếu fact : S02
+R01 : S01 -> D01  Không được áp dụng, vì thiếu fact : S03
+R01 : S01 -> D01  Không được áp dụng, vì thiếu fact : S10
+R01 : S01 -> D01  Không được áp dụng, vì thiếu fact : S07
+R01 : S01 -> D02  Không được áp dụng, vì thiếu fact : S02
+R01 : S01 -> D02  Không được áp dụng, vì thiếu fact : S03
+R01 : S01 -> D02  Không được áp dụng, vì thiếu fact : S10
+R01 : S01 -> D02  Không được áp dụng, vì thiếu fact : S07
+R01 : S01 -> D03  Không được áp dụng, vì thiếu fact : S02
+R01 : S01 -> D03  Không được áp dụng, vì thiếu fact : S03
+R01 : S01 -> D03  Không được áp dụng, vì thiếu fact : S10
+R01 : S01 -> D03  Không được áp dụng, vì thiếu fact : S07
+R010 : S10 -> D02  Không được áp dụng, vì thiếu fact : S02
+R010 : S10 -> D02  Không được áp dụng, vì thiếu fact : S03
+R010 : S10 -> D02 Được áp dụng
+R010 : S10 -> D02  Không được áp dụng, vì thiếu fact : S07
+R010 : S10 -> D04  Không được áp dụng, vì thiếu fact : S02
+R010 : S10 -> D04  Không được áp dụng, vì thiếu fact : S03
+R010 : S10 -> D04 Được áp dụng
+R010 : S10 -> D04  Không được áp dụng, vì thiếu fact : S07
+R011 : S11 -> D01  Không được áp dụng, vì thiếu fact : S02
+R011 : S11 -> D01  Không được áp dụng, vì thiếu fact : S03
+R011 : S11 -> D01  Không được áp dụng, vì thiếu fact : S10
+R011 : S11 -> D01  Không được áp dụng, vì thiếu fact : S07
+R012 : S12 -> D05  Không được áp dụng, vì thiếu fact : S02
+R012 : S12 -> D05  Không được áp dụng, vì thiếu fact : S03
+R012 : S12 -> D05  Không được áp dụng, vì thiếu fact : S10
+R012 : S12 -> D05  Không được áp dụng, vì thiếu fact : S07
+R02 : S02 -> D01 Được áp dụng
+R02 : S02 -> D01  Không được áp dụng, vì thiếu fact : S03
+R02 : S02 -> D01  Không được áp dụng, vì thiếu fact : S10
+R02 : S02 -> D01  Không được áp dụng, vì thiếu fact : S07
+R02 : S02 -> D04  Không được áp dụng, vì đã nằm trong fact đã được cập nhật
+R02 : S02 -> D04  Không được áp dụng, vì thiếu fact : S03
+R02 : S02 -> D04  Không được áp dụng, vì thiếu fact : S10
+R02 : S02 -> D04  Không được áp dụng, vì thiếu fact : S07
+R02 : S02 -> D05 Được áp dụng
+R02 : S02 -> D05  Không được áp dụng, vì thiếu fact : S03
+R02 : S02 -> D05  Không được áp dụng, vì thiếu fact : S10
+R02 : S02 -> D05  Không được áp dụng, vì thiếu fact : S07
+R03 : S03 -> D02  Không được áp dụng, vì thiếu fact : S02
+R03 : S03 -> D02  Không được áp dụng, vì đã nằm trong fact đã được cập nhật
+R03 : S03 -> D02  Không được áp dụng, vì thiếu fact : S10
+R03 : S03 -> D02  Không được áp dụng, vì thiếu fact : S07
+R05 : S05 -> D03  Không được áp dụng, vì thiếu fact : S02
+R05 : S05 -> D03  Không được áp dụng, vì thiếu fact : S03
+R05 : S05 -> D03  Không được áp dụng, vì thiếu fact : S10
+R05 : S05 -> D03  Không được áp dụng, vì thiếu fact : S07
+R05 : S05 -> D04  Không được áp dụng, vì thiếu fact : S02
+R05 : S05 -> D04  Không được áp dụng, vì thiếu fact : S03
+R05 : S05 -> D04  Không được áp dụng, vì thiếu fact : S10
+R05 : S05 -> D04  Không được áp dụng, vì thiếu fact : S07
+R06 : S06 -> D01  Không được áp dụng, vì thiếu fact : S02
+R06 : S06 -> D01  Không được áp dụng, vì thiếu fact : S03
+R06 : S06 -> D01  Không được áp dụng, vì thiếu fact : S10
+R06 : S06 -> D01  Không được áp dụng, vì thiếu fact : S07
+R07 : S07 -> D02  Không được áp dụng, vì thiếu fact : S02
+R07 : S07 -> D02  Không được áp dụng, vì thiếu fact : S03
+R07 : S07 -> D02  Không được áp dụng, vì thiếu fact : S10
+R07 : S07 -> D02  Không được áp dụng, vì đã nằm trong fact đã được cập nhật
+R08 : S08 -> D03  Không được áp dụng, vì thiếu fact : S02
+R08 : S08 -> D03  Không được áp dụng, vì thiếu fact : S03
+R08 : S08 -> D03  Không được áp dụng, vì thiếu fact : S10
+R08 : S08 -> D03  Không được áp dụng, vì thiếu fact : S07
+R09 : S09 -> D03  Không được áp dụng, vì thiếu fact : S02
+R09 : S09 -> D03  Không được áp dụng, vì thiếu fact : S03
+R09 : S09 -> D03  Không được áp dụng, vì thiếu fact : S10
+R09 : S09 -> D03  Không được áp dụng, vì thiếu fact : S07
+----------
+
+IV. Tập kết quả:
+D02
+D04
+D01
+D05
+-----END-----

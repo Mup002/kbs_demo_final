@@ -1,0 +1,111 @@
+-----START-----
+I. Tập luật suy diễn:
+R1: S01 + S06 + S10 -> D01
+R2: S01 + S03 + S06 + S09 -> D02
+R3: S01 + S03 + S06 -> D01
+R4: S01 + S03 + S07 + S10 -> D02
+R5: S01 + S05 + S10 -> D02
+R6: S01 + S05 + S09 -> D03
+R7: S01 + S09 + S11 -> D01
+R8: S01 + S10 + S11 -> D04
+R9: S01 + S04 + S10 + S12 -> D05
+R10: S01 + S04 + S09 + S12 -> D01
+R11: S01 + S11 + S12 -> D05
+R12: S02 + S03 + S06 -> D04
+R13: S02 + S04 + S09 -> D01
+R14: S02 + S04 + S10 -> D02
+R15: S02 + S05 + S08 -> D03
+R16: S02 + S05 + S10 -> D04
+R17: S02 + S03 + S10 + S11 -> D01
+R18: S02 + S11 + S12 -> D05
+----------
+
+II. Tập thể trạng người dùng:
+S02
+S03
+S10
+S07
+----------
+
+III. Tập mục tiêu:
+D02
+D04
+D01
+D05
+----------
+
+IV. Quá trình suy diễn tiến:
+Mục tiêu D01. Tìm thấy luật R1: S01 + S06 + S10 -> D01. Các mục tiêu cần chứng minh là [' S01 ', ' S06 ', ' S10 ']
+- Mục tiêu  S01  không được tìm thấy . Failed
+- Mục tiêu  S06  không được tìm thấy . Failed
+- Mục tiêu  S10  được tìm thấy . Done
+Mục tiêu D02. Tìm thấy luật R2: S01 + S03 + S06 + S09 -> D02. Các mục tiêu cần chứng minh là [' S01 ', ' S03 ', ' S06 ', ' S09 ']
+- Mục tiêu  S01  không được tìm thấy . Failed
+- Mục tiêu  S03  được tìm thấy . Done
+- Mục tiêu  S06  không được tìm thấy . Failed
+- Mục tiêu  S09  không được tìm thấy . Failed
+Mục tiêu D01. Tìm thấy luật R3: S01 + S03 + S06 -> D01. Các mục tiêu cần chứng minh là [' S01 ', ' S03 ', ' S06 ']
+- Mục tiêu  S01  không được tìm thấy . Failed
+- Mục tiêu  S03  được tìm thấy . Done
+- Mục tiêu  S06  không được tìm thấy . Failed
+Mục tiêu D02. Tìm thấy luật R4: S01 + S03 + S07 + S10 -> D02. Các mục tiêu cần chứng minh là [' S01 ', ' S03 ', ' S07 ', ' S10 ']
+- Mục tiêu  S01  không được tìm thấy . Failed
+- Mục tiêu  S03  được tìm thấy . Done
+- Mục tiêu  S07  được tìm thấy . Done
+- Mục tiêu  S10  được tìm thấy . Done
+Mục tiêu D02. Tìm thấy luật R5: S01 + S05 + S10 -> D02. Các mục tiêu cần chứng minh là [' S01 ', ' S05 ', ' S10 ']
+- Mục tiêu  S01  không được tìm thấy . Failed
+- Mục tiêu  S05  không được tìm thấy . Failed
+- Mục tiêu  S10  được tìm thấy . Done
+Mục tiêu D01. Tìm thấy luật R7: S01 + S09 + S11 -> D01. Các mục tiêu cần chứng minh là [' S01 ', ' S09 ', ' S11 ']
+- Mục tiêu  S01  không được tìm thấy . Failed
+- Mục tiêu  S09  không được tìm thấy . Failed
+- Mục tiêu  S11  không được tìm thấy . Failed
+Mục tiêu D04. Tìm thấy luật R8: S01 + S10 + S11 -> D04. Các mục tiêu cần chứng minh là [' S01 ', ' S10 ', ' S11 ']
+- Mục tiêu  S01  không được tìm thấy . Failed
+- Mục tiêu  S10  được tìm thấy . Done
+- Mục tiêu  S11  không được tìm thấy . Failed
+Mục tiêu D05. Tìm thấy luật R9: S01 + S04 + S10 + S12 -> D05. Các mục tiêu cần chứng minh là [' S01 ', ' S04 ', ' S10 ', ' S12 ']
+- Mục tiêu  S01  không được tìm thấy . Failed
+- Mục tiêu  S04  không được tìm thấy . Failed
+- Mục tiêu  S10  được tìm thấy . Done
+- Mục tiêu  S12  không được tìm thấy . Failed
+Mục tiêu D01. Tìm thấy luật R10: S01 + S04 + S09 + S12 -> D01. Các mục tiêu cần chứng minh là [' S01 ', ' S04 ', ' S09 ', ' S12 ']
+- Mục tiêu  S01  không được tìm thấy . Failed
+- Mục tiêu  S04  không được tìm thấy . Failed
+- Mục tiêu  S09  không được tìm thấy . Failed
+- Mục tiêu  S12  không được tìm thấy . Failed
+Mục tiêu D05. Tìm thấy luật R11: S01 + S11 + S12 -> D05. Các mục tiêu cần chứng minh là [' S01 ', ' S11 ', ' S12 ']
+- Mục tiêu  S01  không được tìm thấy . Failed
+- Mục tiêu  S11  không được tìm thấy . Failed
+- Mục tiêu  S12  không được tìm thấy . Failed
+Mục tiêu D04. Tìm thấy luật R12: S02 + S03 + S06 -> D04. Các mục tiêu cần chứng minh là [' S02 ', ' S03 ', ' S06 ']
+- Mục tiêu  S02  được tìm thấy . Done
+- Mục tiêu  S03  được tìm thấy . Done
+- Mục tiêu  S06  không được tìm thấy . Failed
+Mục tiêu D01. Tìm thấy luật R13: S02 + S04 + S09 -> D01. Các mục tiêu cần chứng minh là [' S02 ', ' S04 ', ' S09 ']
+- Mục tiêu  S02  được tìm thấy . Done
+- Mục tiêu  S04  không được tìm thấy . Failed
+- Mục tiêu  S09  không được tìm thấy . Failed
+Mục tiêu D02. Tìm thấy luật R14: S02 + S04 + S10 -> D02. Các mục tiêu cần chứng minh là [' S02 ', ' S04 ', ' S10 ']
+- Mục tiêu  S02  được tìm thấy . Done
+- Mục tiêu  S04  không được tìm thấy . Failed
+- Mục tiêu  S10  được tìm thấy . Done
+Mục tiêu D04. Tìm thấy luật R16: S02 + S05 + S10 -> D04. Các mục tiêu cần chứng minh là [' S02 ', ' S05 ', ' S10 ']
+- Mục tiêu  S02  được tìm thấy . Done
+- Mục tiêu  S05  không được tìm thấy . Failed
+- Mục tiêu  S10  được tìm thấy . Done
+Mục tiêu D01. Tìm thấy luật R17: S02 + S03 + S10 + S11 -> D01. Các mục tiêu cần chứng minh là [' S02 ', ' S03 ', ' S10 ', ' S11 ']
+- Mục tiêu  S02  được tìm thấy . Done
+- Mục tiêu  S03  được tìm thấy . Done
+- Mục tiêu  S10  được tìm thấy . Done
+- Mục tiêu  S11  không được tìm thấy . Failed
+Mục tiêu D05. Tìm thấy luật R18: S02 + S11 + S12 -> D05. Các mục tiêu cần chứng minh là [' S02 ', ' S11 ', ' S12 ']
+- Mục tiêu  S02  được tìm thấy . Done
+- Mục tiêu  S11  không được tìm thấy . Failed
+- Mục tiêu  S12  không được tìm thấy . Failed
+----------
+
+V. Tập kết quả:
+D02
+R4-----END-----
