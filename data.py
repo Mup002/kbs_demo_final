@@ -1,5 +1,5 @@
 import mysql.connector
-
+import re
 from forward_demo1 import Rule
 
 mydb = mysql.connector.connect(
@@ -8,7 +8,6 @@ mydb = mysql.connector.connect(
     password="1234",
     database = "kbs_demo3"
 )
-
 class QueryData:
     def __init__(self):
         self.resultRegime = []
@@ -69,87 +68,122 @@ class QueryData:
             rules.append(rule)
 
         return rules
-    def getfc(self):
-        dbfc = mydb.cursor()
-        dbfc.execute(
-            "select inferences.id, rules.id_rule, id_status, id_regime from kbs_demo3.inferences, kbs_demo3.rules where inferences.id_rule = rules.id_rule"
 
-        )
-        fc = dbfc.fetchall()
-        s = []
-        d = []
-        for i in range(len(fc)):
-            s.append(fc[i][2])
-            d.append(fc[i][3])
-        tt = s[0]
-        regime = []
-        dicfc = {}
-        for i in range(len(s)):
-            if s[i] == tt:
-                regime.append(d[i])
-            else:
-                dicfc['status'] = tt
-                dicfc['regime'] = regime
-                tt = s[i]
-                self.resultfc.append(dicfc)
-                regime = []
-                regime.append(d[i])
-                dicfc ={}
+    def getExcercise(self, id_regime):
+        dbex =  mydb.cursor()
+        dbex.execute("SELECT * FROM kbs_demo3.exercise;")
+        rows = dbex.fetchall()
+        lst = []
+        for i in rows:
+            if i[3] == id_regime:
+                lst.append(i)
+        return lst
+    def getNutrition(self, id_regime):
+        dbex =  mydb.cursor()
+        dbex.execute("SELECT * FROM kbs_demo3.adive_nutrition")
+        rows = dbex.fetchall()
+        lst = []
+        for i in rows:
+            if i[3] == id_regime:
+                lst.append(i)
+        return lst
 
-    def getbc(self):
-        dbbc = mydb.cursor()
-        dbbc.execute("select inferences.id, rules.id_rule, id_status, id_regime from kbs_demo3.inferences, kbs_demo3.rules where inferences.id_rule = rules.id_rule order by id_regime")
-        fc = dbbc.fetchall()
-        rule = []
-        s = []
-        d = []
-        for i in range(len(fc)):
-            rule.append(fc[i][1])
-            s.append(fc[i][2])
-            d.append(fc[i][3])
-        vtrule = rule[0]
-        tt = []
-        regime = None
-        dicbc = {}
-        for i in range(len(rule)):
-            if rule[i] == vtrule:
-                tt.append(s[i])
-                regime = d[i]
+class Validate:
+    def __init__(self) -> None:
+        pass
+
+    def validate_input_number_form(self,value):
+        while (1):
+            valueGetRidOfSpace = ''.join(value.split(' '))
+            check = valueGetRidOfSpace.isnumeric()
+            if (check):
+                return valueGetRidOfSpace
             else:
-                dicbc['rule'] = vtrule
-                dicbc['regime'] = regime
-                dicbc['status'] = tt
-                vtrule = rule[i]
-                self.resultbc.append(dicbc)
-                regime =  d[i]
-                tt = []
-                tt.append(s[i])
-                dicbc = {}
-    def groupbc(self):
-        p = []
-        vt =  self.resultbc[0]['regime']
-        temp = []
-        for i in self.resultbc:
-            t = []
-            t.append(i['regime'])
-            for j in i['status']:
-                t.append(j)
-            temp.append(t)
-        return temp
-    def groupfc(self):
-        res = []
-        for i in self.resultfc:
-            for j in range(len(i['regime'])):
-                res.append([i['regime'][j], i['status']])
-        return res
+                print("-->Chatbot: Vui lòng nhập 1 số dương")
+                value = input()
+
+    def validate_phonenumber(self,value):
+        while (1):
+            valueGetRidOfSpace = ''.join(value.split(' '))
+            check = valueGetRidOfSpace.isnumeric()
+            if (check):
+                return valueGetRidOfSpace
+            else:
+                print("-->Chatbot: Vui lòng nhập 1 số điện thoại đúng định dạng")
+                value = input()
+
+
+    def validate_email(self, email):
+        while (1):
+            regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+
+            if (re.fullmatch(regex, email)):
+                # print("Chatbot:Tôi đã nhận được thông tin Email của bạn")
+                return email
+
+            else:
+                print("-->Chatbot: Vui lòng nhập lại email")
+                email = input()
+
+    def validate_name(self, value):
+        while (1):
+            valueGetRidOfSpace = ''.join(value.split(' '))
+
+            check = valueGetRidOfSpace.isalpha()
+            if (check):
+                # print("Tôi đã nhận được thông tin Tên của bạn")
+                return value
+            else:
+                print("-->Chatbot: Vui lòng nhập lại tên ! ")
+                value = input()
+
+    def validate_binary_answer(self, value):
+        acceptance_answer_lst = ['1', 'y', 'yes', 'co', 'có']
+        decline_answer_lst = ['0', 'n', 'no', 'khong', 'không']
+        value = value+''
+        while (1):
+            if (value) in acceptance_answer_lst:
+                return True
+            elif value in decline_answer_lst:
+                return False
+            else:
+                print(
+                    "-->Chatbot: Câu trả lời không hợp lệ. Vui lòng nhập lại câu trả lời")
+                value = input()
+
+    def validate_height(self, value):
+        while True:
+            try:
+                height = float(value)
+                if 0 < height < 3:  # Assuming a reasonable range for height in meters
+                    return height
+                else:
+                    print("-->Chatbot: Vui lòng nhập chiều cao hợp lệ (tính bằng mét)")
+                    value = input()
+            except ValueError:
+                print("-->Chatbot: Vui lòng nhập chiều cao là một số.")
+                value = input()
+
+    def validate_weight(self, value):
+        while True:
+            try:
+                weight = float(value)
+                if 0 < weight:  # Assuming weight cannot be negative
+                    return weight
+                else:
+                    print("-->Chatbot: Vui lòng nhập cân nặng hợp lệ (tính bằng kg)")
+                    value = input()
+            except ValueError:
+                print("-->Chatbot: Vui lòng nhập cân nặng là một số.")
+                value = input()
+
 
 class Person:
-    def __init__(self, name, phoneNumber, email, height, weight, bmi):
+    def __init__(self, name,  email, height, weight, bmi):
         self.name = name
-        self.phoneNumber = phoneNumber
         self.email = email
         self.height = height
         self.weight = weight
         self.bmi = bmi
     def __str__(self):
-        return f"{self.name} - {self.phoneNumber} - {self.email} - {self.height} - {self.weight} - {self.bmi}"
+        return f"{self.name} - {self.email} - {self.height} - {self.weight} - {self.bmi}"

@@ -47,13 +47,13 @@ class Inference:
         with open(self.output, 'w', encoding='utf-8') as file:
             file.write('-----START-----\n')
 
-            file.write("I. Tập luật suy diễn:\n")
+            file.write("I. Tập luật suy diễn (rules):\n")
             for item in self.kq1:
                 file.write(item + '\n')
 
             file.write('----------\n')
 
-            file.write("\nII. Tập thể trạng người dùng:\n")
+            file.write("\nII. Tập thể trạng người dùng (facts):\n")
             for item in self.kq2:
                 file.write(item + '\n')
 
